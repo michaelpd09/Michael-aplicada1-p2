@@ -47,7 +47,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -59,8 +68,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\ConsultarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultarUsuarios.Designer.cs">
+      <DependentUpon>ConsultarUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detalle.Designer.cs">
+      <DependentUpon>Detalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registros\ModificarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\ModificarClientes.Designer.cs">
+      <DependentUpon>ModificarClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\RegistrarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\RegistrarClientes.Designer.cs">
+      <DependentUpon>RegistrarClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\RegistroTiposTelefono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\RegistroTiposTelefono.Designer.cs">
+      <DependentUpon>RegistroTiposTelefono.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Consultas\ConsultarUsuarios.resx">
+      <DependentUpon>ConsultarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detalle.resx">
+      <DependentUpon>Detalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -70,6 +115,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Registros\ModificarClientes.resx">
+      <DependentUpon>ModificarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\RegistrarClientes.resx">
+      <DependentUpon>RegistrarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\RegistroTiposTelefono.resx">
+      <DependentUpon>RegistroTiposTelefono.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -82,10 +138,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataBase\Parcial2Db.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="DataBase\Parcial2Db_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Parcial2Db.mdf</DependentUpon>
     </Content>
   </ItemGroup>
@@ -106,6 +162,17 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{CFD11F4F-0878-4E22-8423-B933DCCEC97C}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{57147E48-235D-4C8C-BF71-0F0BA4AAAC87}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
